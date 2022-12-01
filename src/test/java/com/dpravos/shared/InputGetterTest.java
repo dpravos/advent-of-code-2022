@@ -8,7 +8,7 @@ class InputGetterTest {
 
     @Test
     void should_return_days_input() {
-        InputGetter inputGetter = new InputGetter();
+        HttpInputGetter inputGetter = new HttpInputGetter();
 
         String input = inputGetter.day(1);
 
