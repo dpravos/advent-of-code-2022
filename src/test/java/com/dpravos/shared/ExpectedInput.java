@@ -2266,5 +2266,6 @@ public class ExpectedInput {
             2108
             8942
             6865
-            1691""";
+            1691
+            """;
 }
