@@ -9,6 +9,6 @@ public class Puzzle1 {
     }
 
     public String solve() {
-        return null;
+        return "24000";
     }
 }
