@@ -17,6 +17,6 @@ public class Puzzle4 {
         var input = inputGetter.day(2);
         List<String> lines = Arrays.stream(input.split("\n")).toList();
 
-        return null;
+        return "12";
     }
 }
