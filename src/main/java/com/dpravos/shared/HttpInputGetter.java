@@ -1,5 +1,7 @@
 package com.dpravos.shared;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -13,9 +15,11 @@ public class HttpInputGetter implements InputGetter {
         try {
             URI uri = new URI("https://adventofcode.com/2022/day/" + day + "/input");
 
+            Dotenv dotenv = Dotenv.load();
+
             HttpRequest httpRequest = HttpRequest.newBuilder()
                     .uri(uri)
-                    .header("Cookie", "session=53616c7465645f5fb6afe6ea99439dd7b7c1ccca50e43607906ed3ddb1473c54881ac978b2ca98426f73d096683c7d467c531d6832facea0f8010e1c6090163f")
+                    .header("Cookie", "session=" + dotenv.get("SESSION_TOKEN"))
                     .GET()
                     .build();
             HttpClient client = HttpClient.newHttpClient();
