@@ -31,4 +31,10 @@ class Puzzle3Test {
         assertEquals(Result.WIN, Play.ROCK.against(Play.SCISSORS));
     }
 
+    @Test
+    void minus_one_mod_3_is_2()
+    {
+        assertEquals(2, Math.floorMod(-1, 3));
+    }
+
 }

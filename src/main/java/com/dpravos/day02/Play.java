@@ -3,21 +3,6 @@ package com.dpravos.day02;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Round {
-
-    private final Play opponent;
-    private final Play me;
-
-    public Round(String opponent, String me) {
-        this.opponent = Play.fromOpponent(opponent);
-        this.me = Play.fromMe(me);
-    }
-
-    public int score() {
-        return me.against(opponent).score() + me.score();
-    }
-}
-
 enum Play {
     ROCK("A", "X", 1),
     PAPER("B", "Y", 2),
@@ -54,28 +39,12 @@ enum Play {
     }
 
     public Result against(Play that) throws IllegalStateException {
-        return switch (this.score - that.score % 3) {
+        return switch (Math.floorMod(this.score - that.score, 3)) {
             case 0 -> Result.DRAW;
             case 1 -> Result.WIN;
             case 2 -> Result.LOSE;
             default -> throw new IllegalStateException("Unexpected value: " + (this.score - that.score % 3));
         };
-    }
-
-    public int score() {
-        return score;
-    }
-}
-
-enum Result {
-    WIN(6),
-    DRAW(3),
-    LOSE(0);
-
-    private final int score;
-
-    Result(int score) {
-        this.score = score;
     }
 
     public int score() {
