@@ -20,6 +20,11 @@ public class ExampleInputGetter implements InputGetter {
                                             
                     10000
                     """;
+            case 2 -> """
+                    A Y
+                    B X
+                    C Z
+                    """;
             default -> throw new IllegalArgumentException("Invalid day number.");
         };
     }
