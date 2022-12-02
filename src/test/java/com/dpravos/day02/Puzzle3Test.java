@@ -20,9 +20,9 @@ class Puzzle3Test {
     @Test
     void play_a_y_should_score_8()
     {
-        Play play = new Play("A", "Y");
+        Round round = new Round("A", "Y");
 
-        assertEquals(8, play.score());
+        assertEquals(8, round.score());
     }
 
 }

@@ -1,7 +1,7 @@
 package com.dpravos.day02;
 
-public class Play {
-    public Play(String opponent, String me) {
+public class Round {
+    public Round(String opponent, String me) {
 
     }
 
