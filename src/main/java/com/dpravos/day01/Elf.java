@@ -13,10 +13,12 @@ public class Elf {
     }
 
     public static List<Elf> fromInput(String input) {
-
         List<Stack> stacks = parseInput(input);
-
         return stacks.stream().map(Elf::new).toList();
+    }
+
+    public int calories() {
+        return stack.calories();
     }
 
     private static List<Stack> parseInput(String input) {
@@ -35,36 +37,5 @@ public class Elf {
         }
         stacks.add(stack);
         return stacks;
-    }
-
-
-    public int calories() {
-        return stack.calories();
-    }
-}
-
-class Food {
-
-    private final String calories;
-
-    Food(String calories) {
-        this.calories = calories;
-    }
-
-    public int calories() {
-        return Integer.parseInt(calories);
-    }
-}
-
-class Stack {
-
-    private final List<Food> foods = new ArrayList<>();
-
-    public void add(Food food) {
-        foods.add(food);
-    }
-
-    public int calories() {
-        return foods.stream().map(Food::calories).reduce(0, Integer::sum);
     }
 }
