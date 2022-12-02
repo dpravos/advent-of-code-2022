@@ -1,6 +1,7 @@
 package com.dpravos;
 
 import com.dpravos.day01.Puzzle1;
+import com.dpravos.day01.Puzzle2;
 import com.dpravos.shared.HttpInputGetter;
 
 public class Main {
@@ -9,6 +10,9 @@ public class Main {
 
         Puzzle1 puzzle1 = new Puzzle1(inputGetter);
         print(puzzle1.solve());
+
+        Puzzle2 puzzle2 = new Puzzle2(inputGetter);
+        print(puzzle2.solve());
     }
 
     private static void print(String message) {
