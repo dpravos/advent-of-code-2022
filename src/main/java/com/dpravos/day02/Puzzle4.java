@@ -17,6 +17,16 @@ public class Puzzle4 {
         var input = inputGetter.day(2);
         List<String> lines = Arrays.stream(input.split("\n")).toList();
 
-        return "12";
+        List<RoundV2> rounds = lines.stream()
+                .map(line -> line.split(" "))
+                .map(plays -> new RoundV2(plays[0], plays[1]))
+                .toList();
+
+        Integer totalScore = rounds.stream()
+                .map(RoundV2::score)
+                .reduce(Integer::sum)
+                .orElseThrow();
+
+        return String.valueOf(totalScore);
     }
 }

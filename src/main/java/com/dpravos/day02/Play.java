@@ -14,6 +14,7 @@ enum Play {
 
     private static final Map<String, Play> opponentPlays = new HashMap<>();
     private static final Map<String, Play> myPlays = new HashMap<>();
+    private static final Map<Integer, Play> scores = new HashMap<>();
 
     static {
         for (Play value : Play.values()) {
@@ -21,6 +22,9 @@ enum Play {
         }
         for (Play value : Play.values()) {
             myPlays.put(value.me, value);
+        }
+        for (Play value : Play.values()) {
+            scores.put(value.score, value);
         }
     }
 
@@ -38,6 +42,10 @@ enum Play {
         return myPlays.get(me);
     }
 
+    public static Play ofScore(int score) {
+        return scores.get(score);
+    }
+
     public Result against(Play that) throws IllegalStateException {
         return switch (Math.floorMod(this.score - that.score, 3)) {
             case 0 -> Result.DRAW;
@@ -49,5 +57,13 @@ enum Play {
 
     public int score() {
         return score;
+    }
+
+    public Play suchThat(ResultV2 result) {
+        return switch (result) {
+            case DRAW -> this;
+            case WIN -> Play.ofScore(Math.floorMod(this.score, 3) + 1);
+            case LOSE -> Play.ofScore(Math.floorMod(this.score + 1, 3) + 1);
+        };
     }
 }
