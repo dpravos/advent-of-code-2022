@@ -25,4 +25,10 @@ class Puzzle3Test {
         assertEquals(8, round.score());
     }
 
+    @Test
+    void rock_wins_scissors()
+    {
+        assertEquals(Result.WIN, Play.ROCK.against(Play.SCISSORS));
+    }
+
 }
