@@ -5,7 +5,7 @@ import com.dpravos.shared.Puzzle;
 
 import java.util.Comparator;
 
-public class Puzzle1 extends Puzzle {
+public final class Puzzle1 extends Puzzle {
 
     public Puzzle1(InputGetter inputGetter) {
         super(inputGetter);

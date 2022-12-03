@@ -3,7 +3,7 @@ package com.dpravos.day02;
 import com.dpravos.shared.InputGetter;
 import com.dpravos.shared.Puzzle;
 
-public class Puzzle4 extends Puzzle {
+public final class Puzzle4 extends Puzzle {
 
     public Puzzle4(InputGetter inputGetter) {
         super(inputGetter);
