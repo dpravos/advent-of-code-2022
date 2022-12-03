@@ -25,6 +25,14 @@ public class ExampleInputGetter implements InputGetter {
                     B X
                     C Z
                     """;
+            case 3 -> """
+                    vJrwpWtwJgWrhcsFMMfFFhFp
+                    jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+                    PmmdzqPrVvPwwTWBwg
+                    wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+                    ttgJtRGJQctTZtZT
+                    CrZsJsPPZsGzwwsLwLmpwMDw
+                    """;
             default -> throw new IllegalArgumentException("Invalid day number.");
         };
     }
