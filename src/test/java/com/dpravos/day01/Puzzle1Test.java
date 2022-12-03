@@ -1,40 +1,42 @@
 package com.dpravos.day01;
 
 import com.dpravos.shared.ExampleInputGetter;
+import com.dpravos.shared.InputGetter;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Puzzle1Test {
 
+    private InputGetter inputGetter;
+
+    @BeforeEach
+    void setUp() {
+        inputGetter = new ExampleInputGetter();
+    }
+
     @Test
     void should_solve_example() {
-        ExampleInputGetter inputGetter = new ExampleInputGetter();
-        Puzzle1 puzzle1 = new Puzzle1(inputGetter);
+        var puzzle1 = new Puzzle1(inputGetter);
 
-        String solution = puzzle1.solve();
+        var solution = puzzle1.solve();
 
         assertEquals("24000", solution);
     }
 
     @Test
     void should_have_5_elves() {
-        ExampleInputGetter inputGetter = new ExampleInputGetter();
-
-        List<Elf> elves = Elf.fromInput(inputGetter.day(1));
+        var elves = Elf.fromInput(inputGetter.day(1));
 
         assertEquals(5, elves.size());
     }
 
     @Test
     void first_elf_should_have_6k_calories() {
-        ExampleInputGetter inputGetter = new ExampleInputGetter();
+        var elves = Elf.fromInput(inputGetter.day(1));
 
-        List<Elf> elves = Elf.fromInput(inputGetter.day(1));
-
-        Elf firstElf = elves.get(0);
+        var firstElf = elves.get(0);
 
         assertEquals(6000, firstElf.calories());
     }
