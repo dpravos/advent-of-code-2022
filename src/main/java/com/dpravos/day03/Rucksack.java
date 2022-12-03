@@ -1,5 +1,6 @@
 package com.dpravos.day03;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Rucksack {
@@ -21,6 +22,16 @@ public class Rucksack {
     }
 
     public List<Character> repeated() {
-        return List.of('p');
+        List<Character> firstChars = first.content().chars()
+                .mapToObj(e -> (char) e)
+                .toList();
+        List<Character> secondChars = second.content().chars()
+                .mapToObj(e -> (char) e)
+                .toList();
+
+        var common = new ArrayList<>(firstChars);
+        common.retainAll(secondChars);
+
+        return common;
     }
 }
