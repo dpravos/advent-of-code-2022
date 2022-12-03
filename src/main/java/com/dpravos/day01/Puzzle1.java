@@ -1,6 +1,7 @@
 package com.dpravos.day01;
 
 import com.dpravos.shared.InputGetter;
+import com.dpravos.shared.Puzzle;
 
 import java.util.Comparator;
 import java.util.List;

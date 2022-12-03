@@ -1,6 +1,4 @@
-package com.dpravos.day01;
-
-import com.dpravos.shared.InputGetter;
+package com.dpravos.shared;
 
 public abstract class Puzzle {
     protected final InputGetter inputGetter;

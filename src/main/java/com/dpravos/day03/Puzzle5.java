@@ -1,6 +1,6 @@
 package com.dpravos.day03;
 
-import com.dpravos.day01.Puzzle;
+import com.dpravos.shared.Puzzle;
 import com.dpravos.shared.InputGetter;
 
 import java.util.Arrays;
