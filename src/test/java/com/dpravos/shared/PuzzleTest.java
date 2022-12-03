@@ -1,7 +1,5 @@
-package com.dpravos.day01;
+package com.dpravos.shared;
 
-import com.dpravos.shared.ExampleInputGetter;
-import com.dpravos.shared.InputGetter;
 import org.junit.jupiter.api.BeforeEach;
 
 public abstract class PuzzleTest {

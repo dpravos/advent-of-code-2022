@@ -1,10 +1,7 @@
 package com.dpravos.day03;
 
-import com.dpravos.shared.Puzzle;
 import com.dpravos.shared.InputGetter;
-
-import java.util.Arrays;
-import java.util.List;
+import com.dpravos.shared.Puzzle;
 
 public class Puzzle5 extends Puzzle {
 
@@ -15,9 +12,8 @@ public class Puzzle5 extends Puzzle {
     @Override
     public String solve() {
         var input = inputGetter.day(3);
-        List<String> lines = Arrays.stream(input.split("\n")).toList();
 
-        var rucksacks = lines.stream().map(Rucksack::new).toList();
+        var rucksacks = input.lines().stream().map(Rucksack::new).toList();
 
         var totalPriority = rucksacks.stream()
                 .map(Rucksack::priority)

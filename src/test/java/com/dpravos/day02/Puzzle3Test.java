@@ -1,6 +1,6 @@
 package com.dpravos.day02;
 
-import com.dpravos.day01.PuzzleTest;
+import com.dpravos.shared.PuzzleTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -4,7 +4,6 @@ import com.dpravos.shared.InputGetter;
 import com.dpravos.shared.Puzzle;
 
 import java.util.Comparator;
-import java.util.List;
 
 public class Puzzle1 extends Puzzle {
 
@@ -15,11 +14,11 @@ public class Puzzle1 extends Puzzle {
     @Override
     public String solve() {
 
-        String input = inputGetter.day(1);
+        var input = inputGetter.day(1);
 
-        List<Elf> elves = Elf.fromInput(input);
+        var elves = Elf.fromInput(input);
 
-        int maxCalories = elves.stream().max(Comparator.comparingInt(Elf::calories))
+        var maxCalories = elves.stream().max(Comparator.comparingInt(Elf::calories))
                 .orElseThrow()
                 .calories();
 

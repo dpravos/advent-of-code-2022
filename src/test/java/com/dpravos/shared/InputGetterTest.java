@@ -10,9 +10,9 @@ class InputGetterTest {
     void should_return_days_input() {
         HttpInputGetter inputGetter = new HttpInputGetter();
 
-        String input = inputGetter.day(1);
+        var input = inputGetter.day(1);
 
-        assertEquals(ExpectedInput.value, input);
+        assertEquals(ExpectedInput.value, input.content());
     }
 
 }

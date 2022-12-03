@@ -2,7 +2,11 @@ package com.dpravos.shared;
 
 public class ExampleInputGetter implements InputGetter {
     @Override
-    public String day(int day) {
+    public Input day(int day) {
+        return new Input(content(day));
+    }
+
+    private String content(int day) {
         return switch (day) {
             case 1 -> """
                     1000

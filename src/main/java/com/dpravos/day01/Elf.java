@@ -1,7 +1,8 @@
 package com.dpravos.day01;
 
+import com.dpravos.shared.Input;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Elf {
@@ -12,7 +13,7 @@ public class Elf {
         this.stack = stack;
     }
 
-    public static List<Elf> fromInput(String input) {
+    public static List<Elf> fromInput(Input input) {
         List<Stack> stacks = parseInput(input);
         return stacks.stream().map(Elf::new).toList();
     }
@@ -21,8 +22,8 @@ public class Elf {
         return stack.calories();
     }
 
-    private static List<Stack> parseInput(String input) {
-        List<String> lines = Arrays.stream(input.split("\n")).toList();
+    private static List<Stack> parseInput(Input input) {
+        List<String> lines = input.lines();
 
         List<Stack> stacks = new ArrayList<>();
 
@@ -38,4 +39,5 @@ public class Elf {
         stacks.add(stack);
         return stacks;
     }
+
 }

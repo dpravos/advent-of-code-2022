@@ -10,7 +10,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class HttpInputGetter implements InputGetter {
-    public String day(int day) {
+
+    @Override
+    public Input day(int day) {
 
         try {
             URI uri = new URI("https://adventofcode.com/2022/day/" + day + "/input");
@@ -25,7 +27,7 @@ public class HttpInputGetter implements InputGetter {
             HttpClient client = HttpClient.newHttpClient();
             HttpResponse<String> response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
 
-            return response.body();
+            return new Input(response.body());
         } catch (IOException | InterruptedException | URISyntaxException e) {
             throw new RuntimeException(e);
         }
