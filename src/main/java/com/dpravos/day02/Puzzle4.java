@@ -1,16 +1,15 @@
 package com.dpravos.day02;
 
+import com.dpravos.day01.Puzzle;
 import com.dpravos.shared.InputGetter;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Puzzle4 {
-
-    private final InputGetter inputGetter;
+public class Puzzle4 extends Puzzle {
 
     public Puzzle4(InputGetter inputGetter) {
-        this.inputGetter = inputGetter;
+        super(inputGetter);
     }
 
     public String solve() {

@@ -4,12 +4,10 @@ import com.dpravos.shared.InputGetter;
 
 import java.util.List;
 
-public class Puzzle2 {
-
-    private final InputGetter inputGetter;
+public class Puzzle2 extends Puzzle {
 
     public Puzzle2(InputGetter inputGetter) {
-        this.inputGetter = inputGetter;
+        super(inputGetter);
     }
 
     public String solve() {

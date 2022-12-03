@@ -5,14 +5,13 @@ import com.dpravos.shared.InputGetter;
 import java.util.Comparator;
 import java.util.List;
 
-public class Puzzle1 {
-
-    private final InputGetter inputGetter;
+public class Puzzle1 extends Puzzle {
 
     public Puzzle1(InputGetter inputGetter) {
-        this.inputGetter = inputGetter;
+        super(inputGetter);
     }
 
+    @Override
     public String solve() {
 
         String input = inputGetter.day(1);
