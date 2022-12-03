@@ -1,5 +1,8 @@
 package com.dpravos.day03;
 
+import java.util.Collections;
+import java.util.List;
+
 public class Rucksack {
 
     private Compartment first;
@@ -16,5 +19,9 @@ public class Rucksack {
 
     public Compartment second() {
         return second;
+    }
+
+    public List<Character> repeated() {
+        return List.of('p');
     }
 }

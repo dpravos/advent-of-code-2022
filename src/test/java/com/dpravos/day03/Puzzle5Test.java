@@ -3,6 +3,8 @@ package com.dpravos.day03;
 import com.dpravos.day01.PuzzleTest;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Puzzle5Test extends PuzzleTest {
@@ -32,5 +34,13 @@ class Puzzle5Test extends PuzzleTest {
         var rucksack = new Rucksack(content);
 
         assertEquals(new Compartment("hcsFMMfFFhFp"), rucksack.second());
+    }
+
+    @Test
+    void should_detect_repeated_item_types_in_compartments() {
+        var content = "vJrwpWtwJgWrhcsFMMfFFhFp";
+        var rucksack = new Rucksack(content);
+
+        assertEquals(List.of('p'), rucksack.repeated());
     }
 }
