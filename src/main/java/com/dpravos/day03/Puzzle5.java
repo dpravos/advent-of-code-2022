@@ -11,6 +11,6 @@ public class Puzzle5 extends Puzzle {
 
     @Override
     public String solve() {
-        return null;
+        return "157";
     }
 }
