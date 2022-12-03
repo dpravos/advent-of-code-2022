@@ -17,8 +17,7 @@ class Puzzle5Test extends PuzzleTest {
     }
 
     @Test
-    void first_half_of_rucksack_content_should_be_stored_in_first_compartment()
-    {
+    void first_half_of_rucksack_content_should_be_stored_in_first_compartment() {
         var content = "vJrwpWtwJgWrhcsFMMfFFhFp";
         var rucksack = new Rucksack(content);
 
@@ -26,8 +25,7 @@ class Puzzle5Test extends PuzzleTest {
     }
 
     @Test
-    void second_half_of_rucksack_content_should_be_stored_in_second_compartment()
-    {
+    void second_half_of_rucksack_content_should_be_stored_in_second_compartment() {
         var content = "vJrwpWtwJgWrhcsFMMfFFhFp";
         var rucksack = new Rucksack(content);
 
@@ -40,5 +38,26 @@ class Puzzle5Test extends PuzzleTest {
         var rucksack = new Rucksack(content);
 
         assertEquals(new ItemType('p'), rucksack.repeated());
+    }
+
+    @Test
+    void a_should_have_priority_1() {
+        var a = new ItemType('a');
+
+        assertEquals(1, a.priority());
+    }
+
+    @Test
+    void b_should_have_priority_2() {
+        var b = new ItemType('b');
+
+        assertEquals(2, b.priority());
+    }
+
+    @Test
+    void A_should_have_priority_27() {
+        var uppercaseA = new ItemType('A');
+
+        assertEquals(27, uppercaseA.priority());
     }
 }
