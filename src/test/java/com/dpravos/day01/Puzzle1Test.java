@@ -1,20 +1,10 @@
 package com.dpravos.day01;
 
-import com.dpravos.shared.ExampleInputGetter;
-import com.dpravos.shared.InputGetter;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Puzzle1Test {
-
-    private InputGetter inputGetter;
-
-    @BeforeEach
-    void setUp() {
-        inputGetter = new ExampleInputGetter();
-    }
+class Puzzle1Test extends PuzzleTest {
 
     @Test
     void should_solve_example() {
