@@ -3,8 +3,6 @@ package com.dpravos.day03;
 import com.dpravos.day01.PuzzleTest;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Puzzle5Test extends PuzzleTest {
@@ -24,7 +22,7 @@ class Puzzle5Test extends PuzzleTest {
         var content = "vJrwpWtwJgWrhcsFMMfFFhFp";
         var rucksack = new Rucksack(content);
 
-        assertEquals(new Compartment("vJrwpWtwJgWr"), rucksack.first());
+        assertEquals(new Compartment("vJrwpWtwJgWr").content(), rucksack.first().content());
     }
 
     @Test
@@ -33,7 +31,7 @@ class Puzzle5Test extends PuzzleTest {
         var content = "vJrwpWtwJgWrhcsFMMfFFhFp";
         var rucksack = new Rucksack(content);
 
-        assertEquals(new Compartment("hcsFMMfFFhFp"), rucksack.second());
+        assertEquals(new Compartment("hcsFMMfFFhFp").content(), rucksack.second().content());
     }
 
     @Test
@@ -41,6 +39,6 @@ class Puzzle5Test extends PuzzleTest {
         var content = "vJrwpWtwJgWrhcsFMMfFFhFp";
         var rucksack = new Rucksack(content);
 
-        assertEquals(List.of('p'), rucksack.repeated());
+        assertEquals(new ItemType('p'), rucksack.repeated());
     }
 }

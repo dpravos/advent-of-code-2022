@@ -1,8 +1,5 @@
 package com.dpravos.day03;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Rucksack {
 
     private final Compartment first;
@@ -21,17 +18,7 @@ public class Rucksack {
         return second;
     }
 
-    public List<Character> repeated() {
-        List<Character> firstChars = first.content().chars()
-                .mapToObj(e -> (char) e)
-                .toList();
-        List<Character> secondChars = second.content().chars()
-                .mapToObj(e -> (char) e)
-                .toList();
-
-        var common = new ArrayList<>(firstChars);
-        common.retainAll(secondChars);
-
-        return common;
+    public ItemType repeated() {
+        return first.typeInCommonWith(second);
     }
 }
