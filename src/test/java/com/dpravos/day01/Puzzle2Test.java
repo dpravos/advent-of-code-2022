@@ -1,18 +1,16 @@
 package com.dpravos.day01;
 
-import com.dpravos.shared.ExampleInputGetter;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Puzzle2Test {
+class Puzzle2Test extends PuzzleTest {
 
     @Test
     void should_solve_example() {
-        ExampleInputGetter inputGetter = new ExampleInputGetter();
-        Puzzle2 puzzle2 = new Puzzle2(inputGetter);
+        var puzzle2 = new Puzzle2(inputGetter);
 
-        String solution = puzzle2.solve();
+        var solution = puzzle2.solve();
 
         assertEquals("45000", solution);
     }
