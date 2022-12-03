@@ -15,4 +15,22 @@ class Puzzle5Test extends PuzzleTest {
 
         assertEquals("157", solution);
     }
+
+    @Test
+    void first_half_of_rucksack_content_should_be_stored_in_first_compartment()
+    {
+        var content = "vJrwpWtwJgWrhcsFMMfFFhFp";
+        var rucksack = new Rucksack(content);
+
+        assertEquals(new Compartment("vJrwpWtwJgWr"), rucksack.first());
+    }
+
+    @Test
+    void second_half_of_rucksack_content_should_be_stored_in_second_compartment()
+    {
+        var content = "vJrwpWtwJgWrhcsFMMfFFhFp";
+        var rucksack = new Rucksack(content);
+
+        assertEquals(new Compartment("hcsFMMfFFhFp"), rucksack.second());
+    }
 }
