@@ -21,4 +21,8 @@ public class Rucksack {
     public ItemType repeated() {
         return first.typeInCommonWith(second);
     }
+
+    public int priority() {
+        return repeated().priority();
+    }
 }
