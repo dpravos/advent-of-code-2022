@@ -1,5 +1,8 @@
 package com.dpravos.day03;
 
+import java.util.List;
+import java.util.stream.Stream;
+
 public class Rucksack {
 
     private final Compartment first;
@@ -24,5 +27,9 @@ public class Rucksack {
 
     public int priority() {
         return repeated().priority();
+    }
+
+    public List<Item> items() {
+        return Stream.concat(first.items().stream(), second.items().stream()).toList();
     }
 }

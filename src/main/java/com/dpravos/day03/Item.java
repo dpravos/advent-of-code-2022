@@ -4,6 +4,10 @@ import java.util.List;
 
 public class Item {
 
+    public ItemType type() {
+        return type;
+    }
+
     private final ItemType type;
 
     public Item(char ch) {

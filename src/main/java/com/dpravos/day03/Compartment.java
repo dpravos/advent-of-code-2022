@@ -29,4 +29,8 @@ public class Compartment {
 
         return common.get(0);
     }
+
+    public List<Item> items() {
+        return items;
+    }
 }
