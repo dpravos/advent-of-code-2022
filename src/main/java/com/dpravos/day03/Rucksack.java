@@ -13,6 +13,10 @@ public class Rucksack {
         second = new Compartment(content.substring(content.length() / 2));
     }
 
+    List<ItemType> types() {
+        return items().stream().map(Item::type).toList();
+    }
+
     public Compartment first() {
         return first;
     }
