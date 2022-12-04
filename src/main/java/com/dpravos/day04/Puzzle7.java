@@ -11,6 +11,13 @@ public class Puzzle7 extends Puzzle {
 
     @Override
     public String solve() {
-        return "2";
+        var lines = inputGetter.day(4).lines();
+
+        var count = lines.stream()
+                .map(AssignmentPair::fromLine)
+                .filter(AssignmentPair::fullOverlap)
+                .count();
+
+        return String.valueOf(count);
     }
 }
