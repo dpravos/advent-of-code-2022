@@ -40,4 +40,11 @@ class Puzzle8Test extends PuzzleTest {
 
         assertTrue(pair.overlaps());
     }
+
+    @Test
+    void assignment_pair_overlaps_contained() {
+        var pair = AssignmentPair.fromLine("1-2,0-3");
+
+        assertTrue(pair.overlaps());
+    }
 }
