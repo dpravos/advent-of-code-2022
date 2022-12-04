@@ -4,6 +4,7 @@ import com.dpravos.shared.PuzzleTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class Puzzle7Test extends PuzzleTest {
 
@@ -14,5 +15,13 @@ class Puzzle7Test extends PuzzleTest {
         var solution = puzzle7.solve();
 
         assertEquals("2", solution);
+    }
+
+    @Test
+    void assignment_contains() {
+        var container = new Assignment(2, 4);
+        var contained = new Assignment(3, 4);
+
+        assertTrue(container.contains(contained));
     }
 }
