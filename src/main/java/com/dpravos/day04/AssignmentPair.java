@@ -17,6 +17,6 @@ public record AssignmentPair(Assignment first, Assignment second) {
     }
 
     public boolean overlaps() {
-        return first.overlaps(second);
+        return first.overlaps(second) || second.overlaps(first);
     }
 }
