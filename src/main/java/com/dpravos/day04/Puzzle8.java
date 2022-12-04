@@ -10,6 +10,13 @@ public class Puzzle8 extends Puzzle {
 
     @Override
     public String solve() {
-        return "4";
+        var lines = inputGetter.day(4).lines();
+
+        var count = lines.stream()
+                .map(AssignmentPair::fromLine)
+                .filter(AssignmentPair::overlaps)
+                .count();
+
+        return String.valueOf(count);
     }
 }
