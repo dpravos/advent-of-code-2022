@@ -12,7 +12,11 @@ public record AssignmentPair(Assignment first, Assignment second) {
         return new AssignmentPair(first, second);
     }
 
-    public boolean fullOverlap() {
+    public boolean fullyOverlaps() {
         return first.contains(second) || second.contains(first);
+    }
+
+    public boolean overlaps() {
+        return first.overlaps(second);
     }
 }

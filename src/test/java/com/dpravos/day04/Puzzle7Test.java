@@ -29,6 +29,6 @@ class Puzzle7Test extends PuzzleTest {
     void assignment_pair_one_contains_the_other() {
         var pair = AssignmentPair.fromLine("2-4,3-4");
 
-        assertTrue(pair.fullOverlap());
+        assertTrue(pair.fullyOverlaps());
     }
 }

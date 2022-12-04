@@ -15,7 +15,7 @@ final public class Puzzle7 extends Puzzle {
 
         var count = lines.stream()
                 .map(AssignmentPair::fromLine)
-                .filter(AssignmentPair::fullOverlap)
+                .filter(AssignmentPair::fullyOverlaps)
                 .count();
 
         return String.valueOf(count);
