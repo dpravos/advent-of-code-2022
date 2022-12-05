@@ -33,4 +33,23 @@ class Puzzle9Test extends PuzzleTest {
 
         assertEquals("A", stack.top());
     }
+
+    @Test
+    void crane_should_move_crates() {
+        var stack1 = new Stack();
+        var stack2 = new Stack();
+
+        var crate = new Crate("A");
+
+        stack1.add(crate);
+
+        var stacks = new Stack[]{stack1, stack2};
+
+        var crane = new Crane(stacks);
+
+        crane.move(1, 1, 2);
+
+        assertEquals("A", stack2.top());
+        assertNull(stack1.top());
+    }
 }

@@ -1,20 +1,23 @@
 package com.dpravos.day05;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
 public class Stack {
 
-    private final List<Crate> crates = new ArrayList<>();
+    private final LinkedList<Crate> crates = new LinkedList<>();
 
     public String top() {
         return !crates.isEmpty()
-                ? crates.get(crates.size() - 1).value()
+                ? crates.getLast().value()
                 : null;
 
     }
 
     public void add(Crate crate) {
         crates.add(crate);
+    }
+
+    public Crate extract() {
+        return crates.removeLast();
     }
 }
