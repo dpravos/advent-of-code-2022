@@ -7,10 +7,10 @@ public final class Crane {
         this.stacks = stacks;
     }
 
-    public void move(int quantity, int origin, int destination) {
-        for (int i = 0; i < quantity; i++) {
-            var crate = stacks[origin - 1].extract();
-            stacks[destination - 1].add(crate);
+    public void move(Instruction instruction) {
+        for (int i = 0; i < instruction.quantity(); i++) {
+            var crate = stacks[instruction.origin() - 1].extract();
+            stacks[instruction.destination() - 1].add(crate);
         }
     }
 }

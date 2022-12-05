@@ -47,7 +47,7 @@ class Puzzle9Test extends PuzzleTest {
 
         var crane = new Crane(stacks);
 
-        crane.move(1, 1, 2);
+        crane.move(new Instruction(1, 1, 2));
 
         assertEquals("A", stack2.top());
         assertNull(stack1.top());
