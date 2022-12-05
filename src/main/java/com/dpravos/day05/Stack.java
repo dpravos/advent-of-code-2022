@@ -20,4 +20,8 @@ public class Stack {
     public Crate extract() {
         return crates.removeLast();
     }
+
+    public boolean sameContentThan(Stack that) {
+        return crates.equals(that.crates);
+    }
 }

@@ -3,8 +3,7 @@ package com.dpravos.day05;
 import com.dpravos.shared.PuzzleTest;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class Puzzle9Test extends PuzzleTest {
 
@@ -51,5 +50,29 @@ class Puzzle9Test extends PuzzleTest {
 
         assertEquals("A", stack2.top());
         assertNull(stack1.top());
+    }
+
+  @Test
+    void cargo_parser_amount_stacks() {
+        var cargoParser = new CargoParser();
+
+        assertEquals(3, cargoParser.amountOfStacks("    [D]    "));
+    }
+
+    @Test
+    void cargo_parser_stacks() {
+        var cargoParser = new CargoParser();
+
+        var stack1 = new Stack();
+        var stack2 = new Stack();
+        var stack3 = new Stack();
+        var crate = new Crate("D");
+        stack2.add(crate);
+
+        var result = cargoParser.parseLine("    [D]    ");
+
+        assertTrue(result[0].sameContentThan(stack1));
+        assertTrue(result[1].sameContentThan(stack2));
+        assertTrue(result[2].sameContentThan(stack3));
     }
 }
