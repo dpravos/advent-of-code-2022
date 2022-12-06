@@ -21,7 +21,7 @@ public class Stack {
         return crates.removeLast();
     }
 
-    public boolean sameContentThan(Stack that) {
-        return crates.equals(that.crates);
+    public LinkedList<Crate> crates() {
+        return crates;
     }
 }

@@ -54,23 +54,6 @@ class Puzzle9Test extends PuzzleTest {
     }
 
     @Test
-    void cargo_parser_stacks() {
-        var cargoParser = new CargoParser();
-
-        var stack1 = new Stack();
-        var stack2 = new Stack();
-        var stack3 = new Stack();
-        var crate = new Crate("D");
-        stack2.add(crate);
-
-        var result = cargoParser.parseLine("    [D]    ");
-
-        assertTrue(result[0].sameContentThan(stack1));
-        assertTrue(result[1].sameContentThan(stack2));
-        assertTrue(result[2].sameContentThan(stack3));
-    }
-
-    @Test
     void input_parser_should_return_cargo_input() {
         var inputParser = new InputParser();
 
@@ -84,5 +67,37 @@ class Puzzle9Test extends PuzzleTest {
          """);
 
         assertEquals(cargoInput.lines(), result);
+    }
+
+    @Test
+    void cargo_parser() {
+        var cargoParser = new CargoParser();
+
+        var stack1 = new Stack();
+        var stack2 = new Stack();
+        var stack3 = new Stack();
+        var z = new Crate("Z");
+        var n = new Crate("N");
+        var m = new Crate("M");
+        var c = new Crate("C");
+        var d = new Crate("D");
+        var p = new Crate("P");
+        stack1.add(z);
+        stack1.add(n);
+        stack2.add(m);
+        stack2.add(c);
+        stack2.add(d);
+        stack3.add(p);
+
+        var result = cargoParser.parse(new Input("""
+            [D]   \s
+        [N] [C]   \s
+        [Z] [M] [P]
+         1   2   3\s
+         """).lines());
+
+        assertEquals(result[0].crates(), stack1.crates());
+        assertEquals(result[1].crates(), stack2.crates());
+        assertEquals(result[2].crates(), stack3.crates());
     }
 }
