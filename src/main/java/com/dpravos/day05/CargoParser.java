@@ -3,9 +3,6 @@ package com.dpravos.day05;
 import java.util.stream.IntStream;
 
 public class CargoParser {
-    public int amountOfStacks(String line) {
-        return (line.length() + 1) / 4;
-    }
 
     public Stack[] parseLine(String line) {
         var filled = line + " ";

@@ -52,13 +52,6 @@ class Puzzle9Test extends PuzzleTest {
         assertNull(stack1.top());
     }
 
-  @Test
-    void cargo_parser_amount_stacks() {
-        var cargoParser = new CargoParser();
-
-        assertEquals(3, cargoParser.amountOfStacks("    [D]    "));
-    }
-
     @Test
     void cargo_parser_stacks() {
         var cargoParser = new CargoParser();
