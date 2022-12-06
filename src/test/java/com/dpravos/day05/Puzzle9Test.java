@@ -4,7 +4,10 @@ import com.dpravos.shared.Input;
 import com.dpravos.shared.PuzzleTest;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class Puzzle9Test extends PuzzleTest {
 
@@ -60,11 +63,11 @@ class Puzzle9Test extends PuzzleTest {
         var result = inputParser.cargoInput(inputGetter.day(5));
 
         var cargoInput = new Input("""
-            [D]   \s
-        [N] [C]   \s
-        [Z] [M] [P]
-         1   2   3\s
-         """);
+                    [D]   \s
+                [N] [C]   \s
+                [Z] [M] [P]
+                 1   2   3\s
+                 """);
 
         assertEquals(cargoInput.lines(), result);
     }
@@ -90,14 +93,37 @@ class Puzzle9Test extends PuzzleTest {
         stack3.add(p);
 
         var result = cargoParser.parse(new Input("""
-            [D]   \s
-        [N] [C]   \s
-        [Z] [M] [P]
-         1   2   3\s
-         """).lines());
+                    [D]   \s
+                [N] [C]   \s
+                [Z] [M] [P]
+                 1   2   3\s
+                 """).lines());
 
         assertEquals(result[0].crates(), stack1.crates());
         assertEquals(result[1].crates(), stack2.crates());
         assertEquals(result[2].crates(), stack3.crates());
+    }
+
+    @Test
+    void instructions_parser() {
+        var lines = new Input("""
+                move 1 from 2 to 1
+                move 3 from 1 to 3
+                move 2 from 2 to 1
+                move 1 from 1 to 2
+                """).lines();
+
+        var parser = new InstructionsParser();
+
+        var instructions = parser.parse(lines);
+
+        var expected = List.of(
+                new Instruction(1, 2, 1),
+                new Instruction(3, 1, 3),
+                new Instruction(2, 2, 1),
+                new Instruction(1, 1, 2)
+        );
+
+        assertEquals(expected, instructions);
     }
 }
