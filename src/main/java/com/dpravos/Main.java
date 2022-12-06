@@ -8,6 +8,7 @@ import com.dpravos.day03.Puzzle5;
 import com.dpravos.day03.Puzzle6;
 import com.dpravos.day04.Puzzle7;
 import com.dpravos.day04.Puzzle8;
+import com.dpravos.day05.Puzzle9;
 import com.dpravos.shared.HttpInputGetter;
 
 public class Main {
@@ -37,6 +38,9 @@ public class Main {
 
         Puzzle8 puzzle8 = new Puzzle8(inputGetter);
         print(puzzle8.solve());
+
+        Puzzle9 puzzle9 = new Puzzle9(inputGetter);
+        print(puzzle9.solve());
     }
 
     private static void print(String message) {
