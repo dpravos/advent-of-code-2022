@@ -9,6 +9,10 @@ public class InputParser {
         return input.lines().subList(0, blankLineIndex(input));
     }
 
+    public List<String> instructionsInput(Input input) {
+        return input.lines().subList(blankLineIndex(input) + 1, input.lines().size());
+    }
+
     private static int blankLineIndex(Input input) {
         var blankLine = input.lines().stream()
                 .filter(line -> line.trim().isEmpty())

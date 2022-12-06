@@ -105,6 +105,22 @@ class Puzzle9Test extends PuzzleTest {
     }
 
     @Test
+    void input_parser_should_return_instructions_input() {
+        var inputParser = new InputParser();
+
+        var result = inputParser.instructionsInput(inputGetter.day(5));
+
+        var instructionsInput = new Input("""
+                move 1 from 2 to 1
+                move 3 from 1 to 3
+                move 2 from 2 to 1
+                move 1 from 1 to 2
+                """);
+
+        assertEquals(instructionsInput.lines(), result);
+    }
+
+    @Test
     void instructions_parser() {
         var lines = new Input("""
                 move 1 from 2 to 1
