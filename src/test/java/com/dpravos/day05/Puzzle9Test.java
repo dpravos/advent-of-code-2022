@@ -1,5 +1,6 @@
 package com.dpravos.day05;
 
+import com.dpravos.shared.Input;
 import com.dpravos.shared.PuzzleTest;
 import org.junit.jupiter.api.Test;
 
@@ -67,5 +68,21 @@ class Puzzle9Test extends PuzzleTest {
         assertTrue(result[0].sameContentThan(stack1));
         assertTrue(result[1].sameContentThan(stack2));
         assertTrue(result[2].sameContentThan(stack3));
+    }
+
+    @Test
+    void input_parser_should_return_cargo_input() {
+        var inputParser = new InputParser();
+
+        var result = inputParser.cargoInput(inputGetter.day(5));
+
+        var cargoInput = new Input("""
+            [D]   \s
+        [N] [C]   \s
+        [Z] [M] [P]
+         1   2   3\s
+         """);
+
+        assertEquals(cargoInput.lines(), result);
     }
 }
