@@ -3,24 +3,20 @@ package com.dpravos.day07;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Directory {
+public class Directory extends FileSystemElement {
 
-    private final String name;
-    private final Set<File> files = new HashSet<>();
+    private final Set<FileSystemElement> content = new HashSet<>();
 
     public Directory(String name) {
-        this.name = name;
+        super(name);
     }
 
-    public String name() {
-        return name;
-    }
-
+    @Override
     public int size() {
-        return files.stream().map(File::size).reduce(0, Integer::sum);
+        return content.stream().map(FileSystemElement::size).reduce(0, Integer::sum);
     }
 
-    public void add(File file) {
-        files.add(file);
+    public void add(FileSystemElement element) {
+        content.add(element);
     }
 }

@@ -25,4 +25,15 @@ class Puzzle13Test extends PuzzleTest {
         assertEquals(10, directory.size());
 
     }
+
+    @Test
+    void should_get_size_of_nested_directories() {
+        var parent = new Directory("parent");
+        var child = new Directory("child");
+        var file = new File("file", 10);
+        child.add(file);
+        parent.add(child);
+
+        assertEquals(10, parent.size());
+    }
 }
