@@ -16,4 +16,15 @@ public record Signal(String value) {
 
         return -1;
     }
+
+    public int startOfMessageMarker() {
+        for (int i = 0; i < value.length() - 13; i++) {
+            String sequence = value.substring(i, i + 14);
+            if (new Sequence(sequence).isDistinct()) {
+                return i + 14;
+            }
+        }
+
+        return -1;
+    }
 }
