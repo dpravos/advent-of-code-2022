@@ -15,4 +15,14 @@ class Puzzle13Test extends PuzzleTest {
 
         assertEquals("95437", solution);
     }
+
+    @Test
+    void should_get_size_of_directory() {
+        var directory = new Directory("d");
+        var file = new File("file", 10);
+        directory.add(file);
+
+        assertEquals(10, directory.size());
+
+    }
 }
