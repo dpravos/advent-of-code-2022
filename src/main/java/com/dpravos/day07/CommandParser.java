@@ -33,6 +33,7 @@ public class CommandParser {
 
         return switch (name) {
             case "cd" -> new ChangeDirectory(args[0]);
+            case "ls" -> new ListContent(outputs);
             default -> throw new RuntimeException("Wrong command");
         };
     }

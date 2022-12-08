@@ -9,6 +9,7 @@ import static com.dpravos.day07.Directory.ROOT_DIR;
 public class Terminal {
 
     private final CommandParser commandParser;
+
     private final Directory root;
 
     private Directory currentDirectory;
@@ -36,5 +37,13 @@ public class Terminal {
         if (target.equals(ROOT_DIR)) {
             this.currentDirectory = root;
         }
+    }
+
+    public Directory root() {
+        return root;
+    }
+
+    public Directory currentDirectory() {
+        return currentDirectory;
     }
 }

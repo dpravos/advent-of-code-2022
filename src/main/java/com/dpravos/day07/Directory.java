@@ -35,4 +35,23 @@ public class Directory extends Node {
 
         return directories;
     }
+
+    public Directory getDirectory(String target) {
+        return content.stream()
+                .filter(Directory.class::isInstance)
+                .map(Directory.class::cast)
+                .filter(directory -> directory.withName(target))
+                .findFirst()
+                .orElseThrow();
+    }
+
+    public File getFile(String target) {
+        return content.stream()
+                .filter(File.class::isInstance)
+                .map(File.class::cast)
+                .filter(directory -> directory.withName(target))
+                .findFirst()
+                .orElseThrow();
+    }
+
 }

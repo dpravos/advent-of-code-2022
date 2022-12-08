@@ -11,5 +11,9 @@ public abstract class Node {
         return name;
     }
 
+    protected boolean withName(String target) {
+        return name.equals(target);
+    }
+
     public abstract int size();
 }

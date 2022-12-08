@@ -87,4 +87,28 @@ class Puzzle13Test extends PuzzleTest {
 
         assertEquals(new ChangeDirectory(Directory.ROOT_DIR), commands.get(0));
     }
+
+    @Test
+    void terminal_should_recreate_dir_content() {
+        CommandParser commandParser = new CommandParser();
+
+        Terminal terminal = new Terminal(commandParser);
+
+        terminal.parse(new Input("""
+                $ cd /
+                $ ls
+                dir a
+                14848514 b.txt
+                """));
+
+        var root = terminal.root();
+
+        Directory a = root.getDirectory("a");
+        File b = root.getFile("b.txt");
+
+        assertEquals("a", a.name());
+        assertEquals(0, a.size());
+        assertEquals("b.txt", b.name());
+        assertEquals(14848514, b.size());
+    }
 }
