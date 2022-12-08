@@ -1,4 +1,4 @@
-package com.dpravos.day07;
+package com.dpravos.day07.node;
 
 public abstract class Node {
     protected final String name;

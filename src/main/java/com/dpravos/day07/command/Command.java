@@ -1,4 +1,6 @@
-package com.dpravos.day07;
+package com.dpravos.day07.command;
+
+import com.dpravos.day07.Terminal;
 
 import java.util.List;
 

@@ -1,4 +1,6 @@
-package com.dpravos.day07;
+package com.dpravos.day07.command;
+
+import com.dpravos.day07.Terminal;
 
 public final class ChangeDirectory extends Command {
     private final String target;

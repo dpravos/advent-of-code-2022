@@ -1,12 +1,16 @@
 package com.dpravos.day07;
 
+import com.dpravos.day07.command.ChangeDirectory;
+import com.dpravos.day07.command.CommandParser;
+import com.dpravos.day07.node.Directory;
+import com.dpravos.day07.node.File;
 import com.dpravos.shared.Input;
 import com.dpravos.shared.PuzzleTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static com.dpravos.day07.Directory.ROOT_DIR;
+import static com.dpravos.day07.node.Directory.ROOT_DIR;
 import static org.junit.jupiter.api.Assertions.*;
 
 class Puzzle13Test extends PuzzleTest {

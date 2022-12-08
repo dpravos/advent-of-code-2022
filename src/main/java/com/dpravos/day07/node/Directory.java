@@ -1,4 +1,4 @@
-package com.dpravos.day07;
+package com.dpravos.day07.node;
 
 import java.util.HashSet;
 import java.util.Set;

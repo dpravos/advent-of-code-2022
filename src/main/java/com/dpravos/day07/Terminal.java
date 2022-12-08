@@ -1,12 +1,15 @@
 package com.dpravos.day07;
 
+import com.dpravos.day07.command.Command;
+import com.dpravos.day07.command.CommandParser;
+import com.dpravos.day07.node.Directory;
 import com.dpravos.shared.Input;
 
 import java.util.List;
 import java.util.Set;
 
-import static com.dpravos.day07.Directory.PARENT_DIR;
-import static com.dpravos.day07.Directory.ROOT_DIR;
+import static com.dpravos.day07.node.Directory.PARENT_DIR;
+import static com.dpravos.day07.node.Directory.ROOT_DIR;
 
 public class Terminal {
 

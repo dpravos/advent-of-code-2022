@@ -1,4 +1,4 @@
-package com.dpravos.day07;
+package com.dpravos.day07.command;
 
 import com.dpravos.shared.Input;
 

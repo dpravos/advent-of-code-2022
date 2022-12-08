@@ -1,4 +1,9 @@
-package com.dpravos.day07;
+package com.dpravos.day07.command;
+
+import com.dpravos.day07.node.Directory;
+import com.dpravos.day07.node.File;
+import com.dpravos.day07.node.Node;
+import com.dpravos.day07.Terminal;
 
 import java.util.List;
 

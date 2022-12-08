@@ -1,4 +1,4 @@
-package com.dpravos.day07;
+package com.dpravos.day07.node;
 
 public final class File extends Node {
     private final int size;

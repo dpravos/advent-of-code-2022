@@ -1,5 +1,7 @@
 package com.dpravos.day07;
 
+import com.dpravos.day07.command.CommandParser;
+import com.dpravos.day07.node.Directory;
 import com.dpravos.shared.InputGetter;
 import com.dpravos.shared.Puzzle;
 
