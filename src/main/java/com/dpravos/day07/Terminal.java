@@ -34,9 +34,16 @@ public class Terminal {
     }
 
     public void setCurrentDirectory(String target) {
-        if (target.equals(ROOT_DIR)) {
-            this.currentDirectory = root;
+        this.currentDirectory = directoryByName(target);
+
+    }
+
+    private Directory directoryByName(String name) {
+        if (name.equals(ROOT_DIR)) {
+            return root;
         }
+
+        return currentDirectory.getDirectory(name);
     }
 
     public Directory root() {

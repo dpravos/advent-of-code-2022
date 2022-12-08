@@ -7,7 +7,7 @@ import java.util.*;
 public class CommandParser {
     public List<Command> parse(Input input) {
 
-        Map<String, List<String>> commandOutputs = new HashMap<>();
+        Map<String, List<String>> commandOutputs = new LinkedHashMap<>();
         String currentCommand = null;
 
         for (String line : input.lines()) {

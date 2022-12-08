@@ -111,4 +111,19 @@ class Puzzle13Test extends PuzzleTest {
         assertEquals("b.txt", b.name());
         assertEquals(14848514, b.size());
     }
+
+    @Test
+    void terminal_should_move_to_dir() {
+        CommandParser commandParser = new CommandParser();
+        Terminal terminal = new Terminal(commandParser);
+
+        terminal.parse(new Input("""
+                $ cd /
+                $ ls
+                dir a
+                $ cd a
+                """));
+        
+        assertEquals("a", terminal.pwd());
+    }
 }
