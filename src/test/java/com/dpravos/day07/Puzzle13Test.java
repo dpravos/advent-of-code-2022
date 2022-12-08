@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
+import static com.dpravos.day07.Directory.ROOT_DIR;
 import static org.junit.jupiter.api.Assertions.*;
 
 class Puzzle13Test extends PuzzleTest {
@@ -42,7 +43,7 @@ class Puzzle13Test extends PuzzleTest {
 
     @Test
     void should_list_all_directories_in_a_filesystem() {
-        var root = new Directory(Directory.ROOT_DIR);
+        var root = new Directory(ROOT_DIR);
         var a = new Directory("a");
         var e = new Directory("e");
         var i = new File("i", 584);
@@ -73,7 +74,7 @@ class Puzzle13Test extends PuzzleTest {
                 $ cd /
                 """));
 
-        assertEquals(Directory.ROOT_DIR, terminal.pwd());
+        assertEquals(ROOT_DIR, terminal.pwd());
     }
 
 
@@ -85,7 +86,7 @@ class Puzzle13Test extends PuzzleTest {
                 $ cd /
                 """));
 
-        assertEquals(new ChangeDirectory(Directory.ROOT_DIR), commands.get(0));
+        assertEquals(new ChangeDirectory(ROOT_DIR), commands.get(0));
     }
 
     @Test
@@ -101,7 +102,7 @@ class Puzzle13Test extends PuzzleTest {
                 14848514 b.txt
                 """));
 
-        var root = terminal.root();
+        var root = terminal.currentDirectory();
 
         Directory a = root.getDirectory("a");
         File b = root.getFile("b.txt");
@@ -123,7 +124,23 @@ class Puzzle13Test extends PuzzleTest {
                 dir a
                 $ cd a
                 """));
-        
+
         assertEquals("a", terminal.pwd());
+    }
+
+    @Test
+    void terminal_should_move_to_parent() {
+        CommandParser commandParser = new CommandParser();
+        Terminal terminal = new Terminal(commandParser);
+
+        terminal.parse(new Input("""
+                $ cd /
+                $ ls
+                dir a
+                $ cd a
+                $ cd ..
+                """));
+
+        assertEquals(ROOT_DIR, terminal.pwd());
     }
 }

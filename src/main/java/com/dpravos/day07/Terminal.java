@@ -3,7 +3,9 @@ package com.dpravos.day07;
 import com.dpravos.shared.Input;
 
 import java.util.List;
+import java.util.Set;
 
+import static com.dpravos.day07.Directory.PARENT_DIR;
 import static com.dpravos.day07.Directory.ROOT_DIR;
 
 public class Terminal {
@@ -18,6 +20,10 @@ public class Terminal {
         this.commandParser = commandParser;
         root = Directory.root();
         currentDirectory = root;
+    }
+
+    Set<Directory> allDirectories() {
+        return root.directories();
     }
 
     public void parse(Input commandLine) {
@@ -43,11 +49,11 @@ public class Terminal {
             return root;
         }
 
-        return currentDirectory.getDirectory(name);
-    }
+        if (name.equals(PARENT_DIR)) {
+            return currentDirectory.parent();
+        }
 
-    public Directory root() {
-        return root;
+        return currentDirectory.getDirectory(name);
     }
 
     public Directory currentDirectory() {

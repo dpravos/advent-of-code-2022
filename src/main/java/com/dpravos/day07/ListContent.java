@@ -27,4 +27,11 @@ public class ListContent extends Command {
 
         return new File(words[1], Integer.parseInt(words[0]));
     }
+
+    @Override
+    public String toString() {
+        return "ListContent{" +
+               "output=" + output +
+               '}';
+    }
 }

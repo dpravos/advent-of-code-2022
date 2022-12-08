@@ -2,6 +2,7 @@ package com.dpravos.day07;
 
 public abstract class Node {
     protected final String name;
+    private Directory parent = null;
 
     public Node(String name) {
         this.name = name;
@@ -16,4 +17,12 @@ public abstract class Node {
     }
 
     public abstract int size();
+
+    public Directory parent() {
+        return parent;
+    }
+
+    protected void attachTo(Directory parent) {
+        this.parent = parent;
+    }
 }

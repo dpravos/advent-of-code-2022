@@ -27,4 +27,11 @@ public final class ChangeDirectory extends Command {
     public int hashCode() {
         return target.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "ChangeDirectory{" +
+               "target='" + target + '\'' +
+               '}';
+    }
 }

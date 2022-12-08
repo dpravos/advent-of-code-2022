@@ -10,6 +10,18 @@ public class Puzzle13 extends Puzzle {
 
     @Override
     public String solve() {
-        return "95437";
+
+        CommandParser commandParser = new CommandParser();
+        Terminal terminal = new Terminal(commandParser);
+
+        terminal.parse(inputGetter.day(7));
+
+        var result = terminal.allDirectories().stream()
+                .map(Directory::size)
+                .filter(size -> size <= 100000)
+                .reduce(0, Integer::sum);
+
+        return String.valueOf(result);
     }
+
 }

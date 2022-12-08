@@ -7,23 +7,30 @@ import java.util.*;
 public class CommandParser {
     public List<Command> parse(Input input) {
 
-        Map<String, List<String>> commandOutputs = new LinkedHashMap<>();
-        String currentCommand = null;
+        List<Command> commands = new ArrayList<>();
 
-        for (String line : input.lines()) {
+        String currentCommand = null;
+        List<String> currentOutputs = null;
+
+        for (var line : input.lines()) {
             if (line.startsWith("$")) {
+                if (currentCommand != null ) {
+                    commands.add(create(currentCommand, currentOutputs));
+                }
                 currentCommand = line;
-                commandOutputs.put(currentCommand, new ArrayList<>());
+                currentOutputs = new ArrayList<>();
             } else {
-                if (currentCommand != null) {
-                    commandOutputs.get(currentCommand).add(line);
+                if (currentOutputs != null) {
+                    currentOutputs.add(line);
                 }
             }
         }
 
-        return commandOutputs.keySet().stream()
-                .map(commandLine -> create(commandLine, commandOutputs.get(commandLine)))
-                .toList();
+        if (currentCommand != null ) {
+            commands.add(create(currentCommand, currentOutputs));
+        }
+
+        return commands;
     }
 
     private Command create(String commandLine, List<String> outputs) {

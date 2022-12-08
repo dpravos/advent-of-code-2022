@@ -17,4 +17,12 @@ public final class File extends Node {
     public int size() {
         return size;
     }
+
+    @Override
+    public String toString() {
+        return "File{" +
+               "name='" + name + '\'' +
+               ", size=" + size +
+               '}';
+    }
 }

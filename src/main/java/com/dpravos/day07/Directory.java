@@ -6,6 +6,8 @@ import java.util.Set;
 public class Directory extends Node {
 
     public static final String ROOT_DIR = "/";
+    public static final String PARENT_DIR = "..";
+
     private final Set<Node> content = new HashSet<>();
 
     public Directory(String name) {
@@ -21,8 +23,9 @@ public class Directory extends Node {
         return content.stream().map(Node::size).reduce(0, Integer::sum);
     }
 
-    public void add(Node element) {
-        content.add(element);
+    public void add(Node node) {
+        content.add(node);
+        node.attachTo(this);
     }
 
     public Set<Directory> directories() {
@@ -42,7 +45,10 @@ public class Directory extends Node {
                 .map(Directory.class::cast)
                 .filter(directory -> directory.withName(target))
                 .findFirst()
-                .orElseThrow();
+                .orElseThrow(() -> new RuntimeException(("""
+                        Unable to find dir: %s
+                        Current dir: %s
+                        """).formatted(target, this)));
     }
 
     public File getFile(String target) {
@@ -54,4 +60,11 @@ public class Directory extends Node {
                 .orElseThrow();
     }
 
+    @Override
+    public String toString() {
+        return "Directory{" +
+               "name='" + name + '\'' +
+               ", content=" + content +
+               '}';
+    }
 }
