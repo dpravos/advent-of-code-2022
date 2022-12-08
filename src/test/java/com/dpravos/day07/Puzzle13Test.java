@@ -65,9 +65,13 @@ class Puzzle13Test extends PuzzleTest {
 
     @Test
     void terminal_should_move_to_root() {
-        Terminal terminal = new Terminal();
+        CommandParser commandParser = new CommandParser();
 
-        terminal.parse("$ cd /");
+        Terminal terminal = new Terminal(commandParser);
+
+        terminal.parse(new Input("""
+                $ cd /
+                """));
 
         assertEquals(Directory.ROOT_DIR, terminal.pwd());
     }

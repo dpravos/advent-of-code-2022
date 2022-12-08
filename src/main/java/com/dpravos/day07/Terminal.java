@@ -1,27 +1,27 @@
 package com.dpravos.day07;
 
+import com.dpravos.shared.Input;
+
+import java.util.List;
+
 import static com.dpravos.day07.Directory.ROOT_DIR;
 
 public class Terminal {
 
+    private final CommandParser commandParser;
     private final Directory root;
 
     private Directory currentDirectory;
 
-    public Terminal() {
+    public Terminal(CommandParser commandParser) {
+        this.commandParser = commandParser;
         root = Directory.root();
         currentDirectory = root;
     }
 
-    public void parse(String commandLine) {
-        parse(commandLine, null);
-    }
-
-    public void parse(String commandLine, String output) {
-        if (commandLine.equals("$ cd /")) {
-            var command = new ChangeDirectory(ROOT_DIR);
-            command.execute(this);
-        }
+    public void parse(Input commandLine) {
+        List<Command> commands = commandParser.parse(commandLine);
+        commands.forEach(this::execute);
     }
 
     private void execute(Command command) {
