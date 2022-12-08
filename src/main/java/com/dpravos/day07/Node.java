@@ -1,9 +1,9 @@
 package com.dpravos.day07;
 
-public abstract class FileSystemElement {
+public abstract class Node {
     protected final String name;
 
-    public FileSystemElement(String name) {
+    public Node(String name) {
         this.name = name;
     }
 

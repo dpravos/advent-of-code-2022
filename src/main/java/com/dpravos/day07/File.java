@@ -1,6 +1,6 @@
 package com.dpravos.day07;
 
-public final class File extends FileSystemElement{
+public final class File extends Node {
     private final int size;
 
     public File(String name, int size) {
