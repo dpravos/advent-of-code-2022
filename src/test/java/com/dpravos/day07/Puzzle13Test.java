@@ -1,5 +1,6 @@
 package com.dpravos.day07;
 
+import com.dpravos.shared.Input;
 import com.dpravos.shared.PuzzleTest;
 import org.junit.jupiter.api.Test;
 
@@ -41,7 +42,7 @@ class Puzzle13Test extends PuzzleTest {
 
     @Test
     void should_list_all_directories_in_a_filesystem() {
-        var root = new Directory("/");
+        var root = new Directory(Directory.ROOT_DIR);
         var a = new Directory("a");
         var e = new Directory("e");
         var i = new File("i", 584);
@@ -60,5 +61,26 @@ class Puzzle13Test extends PuzzleTest {
         var expected = Set.of(root, a, e, d);
 
         assertEquals(expected, directories);
+    }
+
+    @Test
+    void terminal_should_move_to_root() {
+        Terminal terminal = new Terminal();
+
+        terminal.parse("$ cd /");
+
+        assertEquals(Directory.ROOT_DIR, terminal.pwd());
+    }
+
+
+    @Test
+    void command_parser_cd() {
+        CommandParser commandParser = new CommandParser();
+
+        var commands = commandParser.parse(new Input("""
+                $ cd /
+                """));
+
+        assertEquals(new ChangeDirectory(Directory.ROOT_DIR), commands.get(0));
     }
 }

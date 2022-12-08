@@ -5,10 +5,15 @@ import java.util.Set;
 
 public class Directory extends Node {
 
+    public static final String ROOT_DIR = "/";
     private final Set<Node> content = new HashSet<>();
 
     public Directory(String name) {
         super(name);
+    }
+
+    public static Directory root() {
+        return new Directory(ROOT_DIR);
     }
 
     @Override
