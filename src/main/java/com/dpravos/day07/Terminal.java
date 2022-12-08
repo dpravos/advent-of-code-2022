@@ -62,4 +62,8 @@ public class Terminal {
     public Directory currentDirectory() {
         return currentDirectory;
     }
+
+    public int size() {
+        return root.size();
+    }
 }
