@@ -82,6 +82,13 @@ public class ExampleInputGetter implements InputGetter {
                     5626152 d.ext
                     7214296 k
                     """;
+            case 8 -> """
+                    30373
+                    25512
+                    65332
+                    33549
+                    35390
+                    """;
             default -> throw new IllegalArgumentException("Invalid day number.");
         };
     }
